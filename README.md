@@ -1,6 +1,6 @@
 # Storage
 
-TODO: Write a gem description
+This is a library provides storage for words. It's implemented with prefix tree.
 
 ## Installation
 
@@ -20,7 +20,33 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'storage'
+
+# Create storage
+s = Storage.new
+# Add string with words separated by comma
+s.add('abc,abcd,abcde,abcdf')
+s.add('xyz,xyzt')
+
+# Load from file
+s.load_from_file('words')
+# Load from zip file
+s.load_from_zip('words.zip')
+# Save to file
+s.save_to_file('words')
+# Save to zip file
+s.save_to_zip('words.zip')
+
+# Does storage contain word?
+s.contains?('abc') #=> true
+s.contains?('alpha') #=> false
+
+# Find all words started with prefix
+s.find('abc') #=> ['abc','abcd','abcde','abcdf']
+s.find('abcd') #=> ['abcd','abcde','abcdf']
+s.find('ab') #=> ArgumentError: Prefix should be 3 letter at least
+```
 
 ## Contributing
 
