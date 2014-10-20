@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Andrew Babichev"]
   spec.email         = ["ababichev@dataart.com"]
   spec.summary       = %q{Simple trie storage}
-  spec.description   = %q{This is a library provides storage for words. It's implemented with preifx tree.}
+  spec.description   = %q{This is a library provides storage for words. It's implemented with prefix tree.}
   spec.homepage      = "https://github.com/Tensho/ruby_dataart"
   spec.license       = "MIT"
 
