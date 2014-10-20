@@ -121,7 +121,7 @@ describe 'Storage (implements trie data structure)' do
              "e"=>{"a"=>{"s"=>{"i"=>{"e"=>{"r(X)"=>{}}}}}},
              "w"=>{"o"=>{"r"=>{"r"=>{"y"=>{"i"=>{"n"=>{"g(X)"=>{}}}}}}}}}
       }
-      subject.load_from_file('words-in').to_h.must_equal expected
+      subject.load_from_file('spec/fixtures/words-in').to_h.must_equal expected
     end
   end
 
@@ -132,9 +132,9 @@ describe 'Storage (implements trie data structure)' do
     end
 
     it 'saves words from storage to file' do
-      subject.save_to_file('words-out')
+      subject.save_to_file('spec/fixtures/words-out')
       expected = "kono\nko\nchichi\nchild\nni\nshite\nsuch\nari\na\nwith\nfather\nthere\nis\n"
-      File.read('words-out').must_equal expected
+      File.read('spec/fixtures/words-out').must_equal expected
     end
   end
 
@@ -157,7 +157,7 @@ describe 'Storage (implements trie data structure)' do
              "e"=>{"a"=>{"s"=>{"i"=>{"e"=>{"r(X)"=>{}}}}}},
              "w"=>{"o"=>{"r"=>{"r"=>{"y"=>{"i"=>{"n"=>{"g(X)"=>{}}}}}}}}}
       }
-      subject.load_from_zip('sample-in.zip').to_h.must_equal expected
+      subject.load_from_zip('spec/fixtures/sample-in.zip').to_h.must_equal expected
     end
   end
 
@@ -168,8 +168,8 @@ describe 'Storage (implements trie data structure)' do
     end
 
     it 'saves words from storage to file' do
-      actual = subject.save_to_zip('sample-out.zip').to_h
-      expected = Storage.new.load_from_zip('sample-out.zip').to_h
+      actual = subject.save_to_zip('spec/fixtures/sample-out.zip').to_h
+      expected = Storage.new.load_from_zip('spec/fixtures/sample-out.zip').to_h
       actual.must_equal expected
     end
   end
